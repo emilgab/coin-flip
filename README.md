@@ -8,5 +8,5 @@ Now, how confident are you that luck will favour you?
 
 # How to play
 1. Open your terminal and navigate to the directory in which the file is in.
-2. Run the file by typing in "python coin-flip.py"
+2. Run the file by typing in "python coin-flip.py".
 3 ENJOY!
