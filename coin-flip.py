@@ -22,25 +22,35 @@ def coin_flip(players_choice, amount):
     else:
         return f"Sorry, you lost {amount}"
 
-# Assigns values to the input, and checks for correct input
-check = False
-
-while check == False:
-    choice = input("Please write HEADS or FALSE: ")
-    if choice == "heads" or choice == "tails":
-        check = True
-
-while True:
-    try:
-        bet = int(input("Please choose the amount to bet: "))
-        break
-    except:
-        continue
-
-# Checks for what input and assigns a number based on input
-if choice == "heads":
-    choice = 0
-elif choice == "tails":
-    choice = 1
+print("\nWelcome to this coin-flip game! \nYou can type in the following: \nHEADS or TAILS = Bet that it will come up heads or tails. \nQUIT or EXIT = Exits the game, you can replay the game until you quit. \n")
     
-print(coin_flip(choice, bet))
+game_off = False
+while game_off == False:
+    # Assigns values to the input, and checks for correct input
+    check = False
+    while check == False:
+        choice = input("Please write HEADS or TAILS: ")
+        if (choice.lower() == "heads") or (choice.lower() == "tails"):
+            check = True
+        elif choice.lower() == "quit" or choice.lower() == "exit":
+            game_off = True
+            break
+        
+    if game_off == True:
+        print("Thank you for playing!")
+        break
+
+    while True:
+        try:
+            bet = int(input("Please choose the amount to bet: "))
+            break
+        except:
+            continue
+
+    # Checks for what input and assigns a number based on input
+    if choice == "heads":
+        choice = 0
+    elif choice == "tails":
+        choice = 1
+
+    print(coin_flip(choice, bet))
