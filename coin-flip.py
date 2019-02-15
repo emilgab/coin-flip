@@ -15,12 +15,17 @@ def coin_flip(players_choice, amount):
         print("\n"*30)
         print("Flipping coin... ", coin_animation[i])
         time.sleep(0.2)
-        
+    
+    if flip_result == 0:
+        flip_print_result = "heads"
+    else:
+        flip_print_result = "tails"
+    
     # Checks if you won
     if  choice == flip_result:
-        return f"Congratulations, you won! {amount*2} has been added to your account!"
+        return f"\nIT CAME UP {flip_print_result.upper()}!\nCongratulations, you won! {amount*2} has been added to your account!\n"
     else:
-        return f"Sorry, you lost {amount}"
+        return f"\nIt came up {flip_print_result}.\nSorry, you lost {amount}\n"
 
 print("\nWelcome to this coin-flip game! \nYou can type in the following: \nHEADS or TAILS = Bet that it will come up heads or tails. \nQUIT or EXIT = Exits the game, you can replay the game until you quit. \n")
     
@@ -37,7 +42,7 @@ while game_off == False:
             break
         
     if game_off == True:
-        print("Thank you for playing!")
+        print("\nThank you for playing!\n")
         break
 
     while True:
