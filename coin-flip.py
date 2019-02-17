@@ -12,7 +12,7 @@ def coin_flip(players_choice, amount):
     # Animating the loading / coin flip with a pause at 0.2s for each print
     coin_animation = ["––","\\","|","/","––","\\","|","/","––"]
     for i in range(0,9):
-        print("\n"*30)
+        print("\n"*80)
         print("Flipping coin... ", coin_animation[i])
         time.sleep(0.2)
     
@@ -53,9 +53,9 @@ while game_off == False:
             continue
 
     # Checks for what input and assigns a number based on input
-    if choice == "heads":
+    if choice.lower() == "heads":
         choice = 0
-    elif choice == "tails":
+    elif choice.lower() == "tails":
         choice = 1
 
     print(coin_flip(choice, bet))
