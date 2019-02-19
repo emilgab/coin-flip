@@ -1,6 +1,21 @@
 import time
 import random
 
+class Player:
+    
+    def __init__(self, balance, bet):
+        self.balance = balance
+        self.bet = bet
+        
+    def checkBalance(self):
+        print(f"\nCurrent balance: {self.balance}\n")
+        
+    def playerWon(self, bet):
+        self.balance += self.bet
+        
+    def playerLost(self, bet):
+        self.balance -= self.bet
+        
 def coin_flip(players_choice, amount):
     """
     This function flips a coin and returns if a player won.
@@ -23,11 +38,18 @@ def coin_flip(players_choice, amount):
     
     # Checks if you won
     if  choice == flip_result:
-        return f"\nIT CAME UP {flip_print_result.upper()}!\nCongratulations, you won! {amount*2} has been added to your account!\n"
+        account.playerWon(amount)
+        return f"\nIT CAME UP {flip_print_result.upper()}!\nCongratulations, you won! {amount} has been added to your account!\n"
     else:
+        account.playerLost(amount)
         return f"\nIt came up {flip_print_result}.\nSorry, you lost {amount}\n"
+    
+# Initializes the class
+account = Player(1000, 0)
 
 print("\nWelcome to this coin-flip game! \nYou can type in the following: \nHEADS or TAILS = Bet that it will come up heads or tails. \nQUIT or EXIT = Exits the game, you can replay the game until you quit. \n")
+
+print(f"You start with 1000 coins, you can check this by typing in BALANCE or AMOUNT\n")
     
 game_off = False
 while game_off == False:
@@ -40,6 +62,8 @@ while game_off == False:
         elif choice.lower() == "quit" or choice.lower() == "exit":
             game_off = True
             break
+        elif choice.lower() == "balance" or choice.lower() == "amount":
+            account.checkBalance()
         
     if game_off == True:
         print("\nThank you for playing!\n")
@@ -48,6 +72,7 @@ while game_off == False:
     while True:
         try:
             bet = int(input("Please choose the amount to bet: "))
+            account.bet = bet
             break
         except:
             continue
