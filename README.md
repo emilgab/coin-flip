@@ -11,5 +11,9 @@ Now, how confident are you that luck will favour you?
 2. Run the file by typing in "python coin-flip.py".
 3. ENJOY!
 
+# Updated gameplay!
+Now you can see how much you've won or lost!
+The game will even allow you to automatically loan money to satisfy your gambling needs!
+
 # About
 The game will run until you type in quit or exit. If you panic, press CTRL + C.
